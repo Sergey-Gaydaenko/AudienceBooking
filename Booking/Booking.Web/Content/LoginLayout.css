@@ -1,0 +1,113 @@
+﻿html { height: 100%; }
+
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #f4f6fb;
+    min-width: 1000px;
+}
+
+.body-content { height: 100%; }
+
+#top-filler {
+    width: 100%;
+    height: 100%;
+}
+
+#top-filler::before {
+    display: block;
+    content: "";
+    height: 14%;
+}
+
+#login-container {
+    margin-top: 150px;
+    background: white;
+    height: 600px;
+    margin-left: 250px;
+    min-width: 800px;
+    background-image: url("Images/login-background.svg")
+}
+
+.logo-container {
+    margin: 5px;
+    border-bottom: 1px solid #a4abc0;
+    padding: 20px 5px;
+}
+
+#body-container {
+    position: absolute;
+    margin-top: 188px;
+    margin-left: 617px;
+    width: 302px;
+    height: 407px;
+}
+
+#title {
+    margin: auto;
+    text-align: center;
+    height: 78px;
+    padding-top: 25px;
+}
+
+#title > span {
+    color: white;
+    font-size: 22px;
+}
+
+#login-nav-menu {
+    margin-top: 185px;
+    display: inline-block;
+}
+
+#login-nav-menu ul {
+    padding: 10px;
+    list-style-type: none;
+}
+
+#login-nav-menu ul li { margin: 15px 0; }
+
+#login-nav-menu ul li a {
+    color: #a4abc0;
+    text-decoration: none;
+}
+
+
+#login-nav-menu ul li a:hover{
+    color: #a4abc0;
+    text-decoration: underline;
+}
+
+#login-nav-menu .active {
+    font-weight: bold;
+}
+
+.loginInput {
+
+    border: 1px  #cccccc; 
+    border-radius: 10px;
+    margin-left: 20px;
+    background: #f5f6fb !important; 
+    outline: none; 
+    height: 35px; 
+    width: 270px; 
+    color: #a6abb6; 
+    font-size: 13px; 
+    font-family: Tahoma;
+    
+}
+input[type=submit]:disabled {
+    color: #e9ebf0;
+}
+.loginSubmit {
+
+    background:#dadbdf;
+    margin-left: 80px;
+    width: 130px;
+    height: 30px;
+    border:0 none;
+    cursor:pointer;
+    border-radius: 10px;
+    font-size: 11px;
+}
