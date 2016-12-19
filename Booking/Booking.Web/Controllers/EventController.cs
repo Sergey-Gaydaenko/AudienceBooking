@@ -202,7 +202,6 @@ namespace Booking.Web.Controllers
             var eventEntity = _eventService.GetEvent(vm.Id);
             if (!_audienceService.IsFree(vm.AudienceId, vm.StartTime, vm.EndTime, vm.Id) || duration < 20)
             {
-                var model = _audienceMapService.GetAudienceMap(AudienceMapSelector.AudienceMapId);
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
