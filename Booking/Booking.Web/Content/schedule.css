@@ -258,4 +258,6 @@
 .schedule-event-item-private .event-item-time,
 .schedule-event-item-private .event-item-title { color: grey; }
 
-#increment-date-button, #decrement-date-button {cursor:pointer}
+#increment-date-button, #decrement-date-button { cursor: pointer }
+
+.datepicker-switch { pointer-events: none; }

@@ -40,7 +40,7 @@ namespace Booking.Services.Services
             var query = _unitOfWork.BookingScheduleRuleRepository.GetAppliedRulesByMonth(month, year);
 
             var list = query.ToList();
-            for (int day = 1; day < 7; ++day)
+            for (int day = 1; day <= 7; ++day)
             {
                 list.Add(_unitOfWork.BookingScheduleRuleRepository.RuleForDate(new DateTime(year, month, day)));
             }

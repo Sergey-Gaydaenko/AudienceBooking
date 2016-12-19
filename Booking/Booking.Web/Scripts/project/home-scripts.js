@@ -66,6 +66,7 @@ $(document)
             });
 
         var time = new Date();
+        
         var pos = timeToPos(lowerHourBound, upperHourBound, tdWidth, time);
 
         if (pos > (upperHourBound - lowerHourBound) * tdWidth) {
@@ -107,6 +108,11 @@ $(document)
         }
 
         loadMonth(time);
+
+        var t = new Date(time.getTime());
+        t.setMonth(t.getMonth() + 1);
+        loadMonth(t);
+
 
         setTimeout(configureDatepicker, 300);
 
