@@ -124,7 +124,7 @@
             .done(function (data) {
                 lowerHoursBound = data.StartHour;
                 upperHoursBound = data.EndHour;
-                updateView();
+                setAndUpdate();
             });
     }
 
