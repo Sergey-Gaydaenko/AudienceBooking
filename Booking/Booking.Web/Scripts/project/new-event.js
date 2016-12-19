@@ -1,5 +1,6 @@
 ﻿var onEventCreateSucceeded = function() {
     $("#CreateEventModal").modal('hide');
+    forceScheduleReload();
 }
 $(document)
     .ready(function() {

@@ -4,7 +4,8 @@
 @using (Ajax.BeginForm("SaveFromPopup", "Event", new {eventId = Model.Id}, new AjaxOptions
 {
     HttpMethod = "Post",
-    UpdateTargetId = string.Format("event-display-popup-{0}", Model.Id)
+    UpdateTargetId = string.Format("event-display-popup-{0}", Model.Id),
+    OnSuccess = "forceScheduleReload"
 }))
 {
     <div id="edit-event-popup">
