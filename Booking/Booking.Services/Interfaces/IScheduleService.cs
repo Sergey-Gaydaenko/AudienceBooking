@@ -11,6 +11,6 @@ namespace Booking.Services.Interfaces
 
         IEnumerable<Event> GetEventsByAudience(Guid audienceId, DateTime from, DateTime to);
 
-        IEnumerable<Event> GetEventsByAuthor(ApplicationUser author, DateTime day, Guid audienceMapId);
+        IEnumerable<Event> GetEventsByAuthor(string userId, DateTime day);
     }
 }

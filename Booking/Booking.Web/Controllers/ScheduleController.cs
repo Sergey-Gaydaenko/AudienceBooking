@@ -15,6 +15,7 @@ namespace Booking.Web.Controllers
         private readonly IScheduleService _scheduleService;
         private readonly IAudienceMapService _audienceMapService;
         private readonly IBookingScheduleRuleService _bookingScheduleRuleService;
+        private readonly IAudienceService _audienceService;
 
         public ScheduleController()
         {
@@ -22,6 +23,7 @@ namespace Booking.Web.Controllers
             _scheduleService = new ScheduleService(uof.EventRepository);
             _audienceMapService = new AudienceMapService(uof);
             _bookingScheduleRuleService = new BookingScheduleRuleService(uof);
+            _audienceService = new AudienceService(uof);
         }
 
         [HttpGet]
@@ -36,11 +38,29 @@ namespace Booking.Web.Controllers
 
             var audienceMap = _audienceMapService.GetAudienceMap(audienceMapId);
             var availableAudiences = audienceMap.Audiences.Where(a => a.IsBookingAvailable)
-                .Select(a => new ScheduleRowName { Id = a.Id, Name = a.Name });
+                .Select(a => new ScheduleRowName {Id = a.Id, Name = a.Name});
             viewModel.AvailableAudiences = availableAudiences;
 
             return Json(viewModel, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpGet]
+        public ActionResult GetDayScheduleByAuthor(DateTime date, string authorId)
+        {
+            var rule = _bookingScheduleRuleService.GetRule(date);
+
+            var events = _scheduleService.GetEventsByAuthor(authorId, date);
+            var viewModel = Mapper.Map<DayScheduleViewModel>(events);
+            viewModel.BookingHourStart = rule.StartHour;
+            viewModel.BookingHourEnd = rule.EndHour;
+
+            var availableAudiences = _audienceService.GetAllAudiences().Where(a => a.IsBookingAvailable)
+                .Select(a => new ScheduleRowName {Id = a.Id, Name = a.Name});
+            viewModel.AvailableAudiences = availableAudiences;
+
+            return Json(viewModel, JsonRequestBehavior.AllowGet);
+        }
+
 
         [HttpGet]
         public ActionResult GetScheduleRule(DateTime date)

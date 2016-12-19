@@ -6,6 +6,7 @@ var thHeight;
 var events;
 var availableAudiencesIds = [];
 var availableAudiencesDivs;
+var urlBuilderCallback;
 
 function posToTime(l, u, w, pos) {
     var time = new Date();
@@ -226,8 +227,7 @@ function refillSchedule(eventsList) {
 }
 
 function loadSchedule(date, loadedCallback) {
-    var audienceMapIdParameter = "&audienceMapId=" + $("#audience-map-id").val();
-    var url = $("#get-day-schedule-url").val() + "?date=" + date.toISOString() + audienceMapIdParameter;
+    var url = urlBuilderCallback(date);
     $.getJSON(url)
         .done(function(data) {
             lowerHourBound = data.BookingHourStart;
