@@ -7,7 +7,7 @@
         {
             if (audience.Id == Model.AudienceInfo.Id)
             {
-                <img id="route-img" src="@audience.RouteImageUrl" />
+                <img id="route-img" src="@audience.RouteImageUrl"/>
             }
 
             <div style="@audience.Style"
@@ -18,13 +18,10 @@
                     @audience.Name
                 </div>
             </div>
-            if (audience.IsBookingAvailable)
-            {
-                <div class="room-proxy"
-                     style="@audience.Style"
-                     data-room-target="audience-@audience.Id">
-                </div>
-            }
+            <div class="room-proxy"
+                 style="@audience.Style"
+                 data-room-target="audience-@audience.Id">
+            </div>
         }
 
         <img src="@Model.AudienceMap.ImageUrl" class="map-background-image"/>

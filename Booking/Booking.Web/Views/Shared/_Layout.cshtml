@@ -31,22 +31,22 @@
                             </a>
                         </div>
                     </li>
-                   
-                    
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <li class="@(ViewBag.ActiveLink == "Profile" ? "active" : "")">
-                                <a href="@Url.Action("Index", "Profile",new { userId = User.Identity.GetUserId()})">
-                                    <i class="fa fa-user" aria-hidden="true"></i> @User.Identity.Name</a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li class="@(ViewBag.ActiveLink == "Login" ? "active" : "")">
-                                @Html.ActionLink(@Localization.Login, "Login", "Account")
-                            </li>
-                        }
-                           
+
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="@(ViewBag.ActiveLink == "Profile" ? "active" : "")">
+                            <a href="@Url.Action("Index", "Profile", new {userId = User.Identity.GetUserId()})">
+                                <i class="fa fa-user" aria-hidden="true"></i> @User.Identity.Name</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="@(ViewBag.ActiveLink == "Login" ? "active" : "")">
+                            @Html.ActionLink(@Localization.Login, "Login", "Account")
+                        </li>
+                    }
+
                     <li class="@(ViewBag.ActiveLink == "Contact" ? "active" : "")">
                         @Html.ActionLink(@Localization.Feedback, "Index", "Contact")
                     </li>
@@ -82,8 +82,10 @@
             <p> @Localization.All_rights_reserved &copy; @DateTime.Now.Year </p>
         </div>
 
-        <ul class="nav navbar-nav" style="font-size:8px">
-            <li class="active"><a href="@Url.Action("SelectMap", "Home")">Map selection</a></li>
+        <ul class="nav navbar-nav" style="font-size: 8px">
+            <li class="active">
+                <a href="@Url.Action("SelectMap", "Home")">Map selection</a>
+            </li>
         </ul>
     </footer>
 </div>
@@ -94,7 +96,6 @@
 @Scripts.Render("~/Scripts/project/datetime-updown.js")
 @Scripts.Render("~/Scripts/project/new-event.js")
 @Scripts.Render("~/Scripts/project/popup-scripts.js")
-@Scripts.Render("~/Scripts/project/edit-event-popup.js")
 @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
 @Scripts.Render("//code.jquery.com/ui/1.12.1/jquery-ui.js")
 @RenderSection("scripts", false)
@@ -104,6 +105,7 @@
 <input type="hidden" id="get-next-available-date-url" value="@Url.Action("GetNextAvailableDate", "Schedule")"/>
 <input type="hidden" id="get-previous-available-date-url" value="@Url.Action("GetPreviousAvailableDate", "Schedule")"/>
 <input type="hidden" id="get-disabled-days-month-url" value="@Url.Action("GetDisabledDaysForMonth", "Schedule")"/>
+<input type="hidden" id="audience-page-url" value="@Url.Action("Index", "Audience")"/>
 
 <div class="modal fade bd-example-modal-sm" id="CreateEventModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-sm">
@@ -111,7 +113,7 @@
     </div>
 </div>
 
-<input type="hidden" id="cancel-event-popup-url" value="@Url.Action("GetCancellationForm", "Event")" />
+<input type="hidden" id="cancel-event-popup-url" value="@Url.Action("GetCancellationForm", "Event")"/>
 
 <div class="modal fade example-modal-sm" id="CancelEvent" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-sm">

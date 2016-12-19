@@ -351,6 +351,7 @@
     <Content Include="Scripts\bootstrap-datepicker\js\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap-datepicker\locales\bootstrap-datepicker.ru.min.js" />
     <Content Include="Content\checkbox-styles.css" />
+    <Content Include="Scripts\project\audience-page.js" />
     <Content Include="Scripts\project\admin_panel\audience_map.js" />
     <Content Include="Scripts\project\popup-scripts.js" />
     <Content Include="Scripts\project\datetime-updown.js" />
