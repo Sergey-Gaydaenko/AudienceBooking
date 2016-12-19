@@ -1,0 +1,27 @@
+﻿@model Booking.Web.ViewModels.Audience.AudienceIndexViewModel
+
+<div class="page-container">
+    <h2 style="text-align: center; margin-bottom: -60px; margin-top: 40px; z-index: 60">@Model.AudienceInfo.Name</h2>
+    <div id="room-map-container">
+        @foreach (var audience in Model.AudienceMap.Audiences)
+        {
+            if (audience.Id == Model.AudienceInfo.Id)
+            {
+                <img id="route-img" src="@audience.RouteImageUrl"/>
+            }
+
+            <div style="@audience.Style"
+                 class="room @(audience.IsBookingAvailable ? "room-available" : "room-not-available") @(audience.Id == Model.AudienceInfo.Id ? "room-active" : "")"
+                 id="audience-@audience.Id"
+                 data-audience-id="@audience.Id">
+                <div class="room-title">
+                    @audience.Name
+                </div>
+            </div>
+        }
+
+        <img src="@Model.AudienceMap.ImageUrl" class="map-background-image"/>
+
+@*        @Html.Partial("_AudienceInfoEditPartial", Model.AudienceInfo)*@
+    </div>
+</div>

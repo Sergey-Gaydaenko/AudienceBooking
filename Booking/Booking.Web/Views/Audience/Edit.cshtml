@@ -1,0 +1,27 @@
+﻿@model Booking.Web.ViewModels.Audience.AudienceIndexViewModel
+
+@{
+    ViewBag.Title = Model.AudienceInfo.Name;
+}
+
+@section styles{
+    @Styles.Render("~/Content/room-styles.css")
+    @Styles.Render("~/Content/home-page.css")
+    @Styles.Render("~/Content/event-popups.css")
+    @Styles.Render("~/Content/Site.css")
+    @Styles.Render("http://fonts.googleapis.com/css?family=Nunito:400,300,700")
+    @Styles.Render("~/Content/schedule.css")
+    @Styles.Render("~/Content/event-page.css")
+    @Styles.Render("~/Content/audience-info.css")
+}
+
+@section scripts
+{
+    @Scripts.Render("//code.jquery.com/ui/1.12.1/jquery-ui.js")
+    @Scripts.Render("~/Scripts/jquery.mapit.js")
+    @Scripts.Render("~/Scripts/initializers.js")
+    @Scripts.Render("~/Scripts/project/room-map.js")
+    @Scripts.Render("~/Scripts/project/popup-scripts.js")
+}
+
+@Html.Partial("_AudienceMapEditPartial", Model)

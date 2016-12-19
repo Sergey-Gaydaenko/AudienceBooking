@@ -460,6 +460,8 @@
     <Content Include="Views\Home\SelectMap.cshtml" />
     <Content Include="Views\Audience\Index.cshtml" />
     <Content Include="Views\Event\_RoomMapChoicePartial.cshtml" />
+    <Content Include="Views\Audience\Edit.cshtml" />
+    <Content Include="Views\Audience\_AudienceMapEditPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

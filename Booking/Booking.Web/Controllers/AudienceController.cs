@@ -70,7 +70,9 @@ namespace Booking.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(Guid audienceId)
         {
-            throw new NotImplementedException();
+            var model = _audienceService.GetAudience(audienceId);
+            var vm = Mapper.Map<AudienceIndexViewModel>(model);
+            return View(vm);
         }
 
         [HttpPost]
