@@ -5,9 +5,10 @@
     $("#cancel-event-popup").load(eventUrl);
 }
 
-function closeCancelEventPopup() {
+function closeCancelEventPopup(id) {
     $("#CancelEvent").modal("toggle");
     forceScheduleReload();
+    closeDisplayEventPopup(id);
 }
 
 function closeDisplayEventPopup(id) {
