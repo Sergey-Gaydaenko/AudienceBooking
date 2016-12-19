@@ -5,7 +5,8 @@
 {
     HttpMethod = "Post",
     UpdateTargetId = string.Format("event-display-popup-{0}", Model.Id),
-    OnSuccess = "forceScheduleReload"
+    OnSuccess = "forceScheduleReload",
+    OnFailure = "redirectToEditEventPage('" + Model.Id + "')"
 }))
 {
     <div class="edit-event-popup">

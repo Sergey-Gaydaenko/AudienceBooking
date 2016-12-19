@@ -20,6 +20,11 @@ function redirectToEventPage(id) {
     window.location.replace(url);
 }
 
+function redirectToEditEventPage(id) {
+    var url = $("#redirect-to-edit-event-url").val() + "?eventId=" + id;
+    window.location.replace(url);
+}
+
 function joinEvent(id) {
     var formId = "join-event-form-" + id;
     $("#" + formId + " .join-event-submit").click();
