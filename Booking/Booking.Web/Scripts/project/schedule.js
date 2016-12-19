@@ -7,6 +7,7 @@ var events;
 var availableAudiencesIds = [];
 var availableAudiencesDivs;
 var urlBuilderCallback;
+var plusBtnAvailable = true;
 
 function posToTime(l, u, w, pos) {
     var time = new Date();
@@ -186,6 +187,16 @@ function refillSchedule(eventsList) {
         $.data($scheduleItem, "event-id", event.Id);
         $scheduleViewport.append($scheduleItem);
     });
+//
+//    var $scheduleItem = $("<div class='schedule-plus-btn'></div>");
+//    $scheduleItem.css("top", thHeight);
+//    $scheduleItem.css("left", 0);
+//    $scheduleItem.css("width", 60 * (tdWidth / 60.0) - 2);
+//    $scheduleItem.css("height", tdHeight - 2);
+//    var $i = $("<i class='fa fa-plus' aria-hidden='true'></i>");
+//    $scheduleItem.append($i);
+//    $scheduleViewport.append($scheduleItem);
+
 
     $(".schedule-event-item")
         .click(function() {
