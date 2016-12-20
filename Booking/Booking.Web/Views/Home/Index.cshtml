@@ -34,13 +34,9 @@
     <meta charset="utf-8"/>
 </head>
 
-<input type="hidden" id="get-audience-info-url" value="@Url.Action("GetAudienceInfo", "Audience")"/>
-<input type="hidden" id="redirect-to-event-url" value="@Url.Action("Index", "Event")"/>
-<input type="hidden" id="display-event-popup-url" value="@Url.Action("DisplayEventPopup", "Event")"/>
-
 <input type="hidden" id="audience-map-id" value="@Model.AudienceMap.Id"/>
-<input type="hidden" id="is-user-admin" value="@Model.IsAdmin"/>
-<input type="hidden" id="user-id" value="@User.Identity.GetUserId()"/>
+<input type="hidden" id="get-day-schedule-url" value="@Url.Action("GetDaySchedule", "Schedule")"/>
+<input type="hidden" id="is-user-admin" value="@Model.IsAdmin" />
 
 @Html.Partial("_RoomMapPartial", Model.AudienceMap)
 

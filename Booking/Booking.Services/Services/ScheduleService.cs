@@ -16,7 +16,7 @@ namespace Booking.Services.Services
         {
             _eventRepository = eventRepository;
         }
-        
+
         public IEnumerable<Event> GetEventsByDay(DateTime day, Guid audienceMapId)
         {
             return _eventRepository.GetEventsByAudienceMapId(audienceMapId)
@@ -31,12 +31,12 @@ namespace Booking.Services.Services
                                                               x.EndTime < to);
         }
 
-        public IEnumerable<Event> GetEventsByAuthor(ApplicationUser author, DateTime day, Guid audienceMapId)
+        public IEnumerable<Event> GetEventsByAuthor(string userId, DateTime day)
         {
-            return _eventRepository.GetEventsByAudienceMapId(audienceMapId).Where(x => x.AuthorId == author.Id &&
-                                                                                       x.StartTime.Day == day.Day &&
-                                                                                       x.StartTime.Month == day.Month &&
-                                                                                       x.StartTime.Year == day.Year);
+            return _eventRepository.GetAllEvents().Where(x => x.AuthorId == userId &&
+                                                              x.StartTime.Day == day.Day &&
+                                                              x.StartTime.Month == day.Month &&
+                                                              x.StartTime.Year == day.Year);
         }
 
         public IEnumerable<Event> GetEventsByAuthor(ApplicationUser author)

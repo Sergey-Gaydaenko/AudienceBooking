@@ -1,30 +1,56 @@
 ﻿@model Booking.Web.ViewModels.Profile.ProfileViewModel
-  
+
 
 @{
     ViewBag.Title = "Profile";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    if (Model.IsOwner) { ViewBag.ActiveLink = "Profile"; }
+    if (Model.IsOwner)
+    {
+        ViewBag.ActiveLink = "Profile";
+    }
 }
+
 @section styles{
-   @Styles.Render("~/Content/Site.css")
+    @Styles.Render("~/Content/home-page.css")
+    @Styles.Render("~/Content/Site.css")
     @Styles.Render("~/Content/Profile-inputs.css")
     @Styles.Render("~/Content/font-awesome/css/font-awesome.css")
+    @Styles.Render("~/Content/schedule.css")
+    @Styles.Render("~/Content/bootstrap-datepicker.css")
+    @Styles.Render("~/Content/datepicker.css")
+    @Styles.Render("~/Content/event-popups.css")
+    <style>
+        body { background: white; }
+    </style>
 }
-@section Scripts {
+
+@section scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/bootstrap-datepicker/js/bootstrap-datepicker.js")
+    @Scripts.Render("~/Scripts/bootstrap-datepicker/locales/bootstrap-datepicker.ru.min.js")
+    @Scripts.Render("~/Scripts/project/schedule.js")
+    @Scripts.Render("~/Scripts/project/profile-scripts.js")
 }
 
+<input type="hidden" id="get-day-schedule-url" value="@Url.Action("GetDayScheduleByAuthor", "Schedule")"/>
+<input type="hidden" id="author-id" value="@Model.Id"/>
+<input type="hidden" id="is-user-admin" value="@Model.UserInfo.IsEditorAdmin"/>
 
-<div  style="background-color: white; min-height: calc(100vh - 50px);">
-    <div id="page-wrapper" class="page-container">
+<div style="background-color: white; height: 100%;">
+    <div class="page-container">
         <div id="profile-partial">
             @Html.Partial("_InfoProfilePartialView", Model)
         </div>
 
-        <div style="width:50%; float:right" class="password-place">
+        <div style="width: 50%; float: right" class="password-place">
             <div id="passwordReplace" style="width: 60%; margin: 0px auto">
-               @Html.Partial("_ResetPasswordPartial",Model)
+                @Html.Partial("_ResetPasswordPartial", Model)
+            </div>
+        </div>
+
+        <div id="schedule-container" style="background: white">
+            <div class="page-container container">
+                @Html.Partial("_HorizontalSchedulePartial")
             </div>
         </div>
     </div>

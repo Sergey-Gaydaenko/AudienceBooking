@@ -5,7 +5,7 @@
     new AjaxOptions
     {
         HttpMethod = "Post",
-        OnSuccess = "closeCancelEventPopup"
+        OnSuccess = "closeCancelEventPopup('" + Model + "')"
     }))
 {
     @Html.AntiForgeryToken()

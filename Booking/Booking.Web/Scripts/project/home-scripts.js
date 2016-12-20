@@ -38,12 +38,19 @@ function toggleActiveAudiences() {
     }
 }
 
+
+urlBuilderCallback = function (date) {
+    var audienceMapIdParameter = "&audienceMapId=" + $("#audience-map-id").val();
+    return $("#get-day-schedule-url").val() + "?date=" + date.toISOString() + audienceMapIdParameter;
+}
+
 $(document)
     .ready(function() {
         rebuildTable(10, 19, [{ Id: 0, Name: "Empty" }]);
         tdWidth = parseInt($("#schedule-contents-table td").css("width"));
         tdHeight = parseInt($("#schedule-contents-table td").css("height"));
         thHeight = parseInt($("#schedule-contents-table th").css("height"));
+
 
         $("#slider-draggable")
             .draggable({
@@ -59,6 +66,7 @@ $(document)
             });
 
         var time = new Date();
+        
         var pos = timeToPos(lowerHourBound, upperHourBound, tdWidth, time);
 
         if (pos > (upperHourBound - lowerHourBound) * tdWidth) {
@@ -101,6 +109,11 @@ $(document)
 
         loadMonth(time);
 
+        var t = new Date(time.getTime());
+        t.setMonth(t.getMonth() + 1);
+        loadMonth(t);
+
+
         setTimeout(configureDatepicker, 300);
 
         function configureDatepicker() {
@@ -137,7 +150,7 @@ $(document)
 
             toggleWithCalendarMode();
 
-            $(".btn-goto-today").click(function() { setDateToday(toggleActiveAudiences); });
+            $(".btn-goto-today").click(function () { setDateToday(toggleActiveAudiences); });
 
             $(".btn-goto-now")
                 .click(function() {

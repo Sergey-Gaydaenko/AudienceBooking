@@ -1,4 +1,4 @@
-﻿#edit-event-popup .head {
+﻿.edit-event-popup .head {
     background: #9fa6b6;
     width: 100%;
     height: 50px;
@@ -8,8 +8,8 @@
     padding-top: 10px;
 }
 
-#edit-event-popup .select-style {
-        padding: 0;
+.edit-event-popup .select-style {
+    padding: 0;
     border: 1px solid #9fa6b5;
     width: 147px;
     height: 30px;
@@ -18,29 +18,30 @@
     background: #9fa6b5;
     color: #FFF;
     font-size: 14px;
-        margin-left: 10px;
+    margin-left: 10px;
 }
-#edit-event-popup .audiences-dropdown {
-    display: inline-block;
-}
-#edit-event-popup .btn-close-edit-event-popup {
-        background: #dee0e6;
+
+.edit-event-popup .audiences-dropdown { display: inline-block; }
+
+.edit-event-popup .btn-close-edit-event-popup {
+    background: #dee0e6;
     border: 0;
     height: 4px;
     width: 15px;
-    position: relative;
-    top: -16px;
-    right: -50px;
-    margin-right: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
-#edit-event-popup .input-style {
+
+.edit-event-popup .input-style {
     padding: 10px;
     width: 100%;
     height: 30px;
     border-radius: 50px;
     border: 1px solid #ebeef7;
 }
-#edit-event-popup .input-style-org {
+
+.edit-event-popup .input-style-org {
     padding: 10px;
     width: 220px;
     height: 30px;
@@ -49,7 +50,7 @@
     float: right;
 }
 
-#edit-event-popup .textarea {
+.edit-event-popup .textarea {
     width: 100%;
     border-radius: 20px;
     border: 1px solid #ebeef7;
@@ -57,14 +58,12 @@
     resize: none;
     padding: 10px;
 }
-#edit-event-popup-body {
-    padding: 10px 20px;
-}
 
-#edit-event-popup .red-toggle {
-    float: right;
-}
-#edit-event-popup .btn-cancel-edit-event-popup {
+.edit-event-popup-body { padding: 10px 20px; }
+
+.edit-event-popup .red-toggle { float: right; }
+
+.edit-event-popup .btn-cancel-edit-event-popup {
     width: 130px;
     height: 35px;
     border: 1px solid #c8ceda;
@@ -72,8 +71,9 @@
     background: #c8ceda;
     margin-left: 120px;
 }
-#edit-event-popup .btn-submit {
-     width: 130px;
+
+.edit-event-popup .btn-submit {
+    width: 130px;
     height: 35px;
     border: 1px solid #f65857;
     border-radius: 20px;

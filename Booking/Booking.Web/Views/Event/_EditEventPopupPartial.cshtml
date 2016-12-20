@@ -4,10 +4,12 @@
 @using (Ajax.BeginForm("SaveFromPopup", "Event", new {eventId = Model.Id}, new AjaxOptions
 {
     HttpMethod = "Post",
-    UpdateTargetId = string.Format("event-display-popup-{0}", Model.Id)
+    UpdateTargetId = string.Format("event-display-popup-{0}", Model.Id),
+    OnSuccess = "forceScheduleReload",
+    OnFailure = "redirectToEditEventPage('" + Model.Id + "')"
 }))
 {
-    <div id="edit-event-popup">
+    <div class="edit-event-popup">
         <div class="form-group head">
             @Html.TextBoxFor(m => m.StartTime, "{0:MM/dd/yyyy HH:mm:ss}", htmlAttributes: new {@type = "hidden", id = "edit-event-popup-start-date-" + @Model.Id, value = @Model.StartTime})
             @Html.TextBoxFor(m => m.EndTime, "{0:MM/dd/yyyy HH:mm:ss}", htmlAttributes: new {@type = "hidden", id = "edit-event-popup-end-date-" + @Model.Id, value = @Model.EndTime})
@@ -62,7 +64,7 @@
                 <button type="button" class="btn-close-edit-event-popup" onclick="closeDisplayEventPopup('@Model.Id')" data-eventid="@Model.Id" id="close-popup-@Model.Id"></button>
             </div>
         </div>
-        <div id="edit-event-popup-body">
+        <div class="edit-event-popup-body">
             <div class="form-group">
                 @Html.ValidationMessageFor(m => m.Title, "", new {@class = "validation-error"})
                 @Html.TextBoxFor(m => m.Title, new {@class = "input-style", placeholder = Localization.Title, value = @Model.Title})

@@ -42,7 +42,7 @@ document.write('<scr' + 'ipt type="text/javascript" src="https://maps.googleapis
 				center: 		true
 			},
 			address: '<h2>Softheme</h2>' +
-			    '<p>town Kiev, streat Dilova 5A </p><br/>' +
+			    '<p>Kyiv, Dilova street 5A </p><br/>' +
 			    '<p><i class="fa fa-globe" aria-hidden="true" style="font-size: 20px;color:red"></i> softheme.com</p>' +
 			    '<p><i class="fa fa-envelope-o" aria-hidden="true" style="font-size: 18px;color:red"></i> info@softheme.com</p>',
 	    styles: 'GRAYSCALE',

@@ -5,9 +5,10 @@
     $("#cancel-event-popup").load(eventUrl);
 }
 
-function closeCancelEventPopup() {
+function closeCancelEventPopup(id) {
     $("#CancelEvent").modal("toggle");
     forceScheduleReload();
+    closeDisplayEventPopup(id);
 }
 
 function closeDisplayEventPopup(id) {
@@ -16,6 +17,11 @@ function closeDisplayEventPopup(id) {
 
 function redirectToEventPage(id) {
     var url = $("#redirect-to-event-url").val() + "?eventId=" + id;
+    window.location.replace(url);
+}
+
+function redirectToEditEventPage(id) {
+    var url = $("#redirect-to-edit-event-url").val() + "?eventId=" + id;
     window.location.replace(url);
 }
 

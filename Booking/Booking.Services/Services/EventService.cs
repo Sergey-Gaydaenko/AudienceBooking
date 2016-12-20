@@ -14,7 +14,7 @@ namespace Booking.Services.Services
         private readonly IUsersService _usersService;
         private readonly IEmailNotificationService _emailNotificationService;
         private readonly IAudienceService _audienceService;
-        
+
         public EventService(IUnitOfWork unitOfWork, IUsersService usersService,
             IEmailNotificationService emailNotificationService, IAudienceService audienceService)
         {
@@ -89,18 +89,36 @@ namespace Booking.Services.Services
 
         public void UpdateEvent(IPrincipal editor, Event eventEntity)
         {
-            var oldEvent = _unitOfWork.EventRepository.GetEventById(eventEntity.Id);
-            if (CanEdit(editor, oldEvent))
+            using (var transaction = _unitOfWork.Context.Database.BeginTransaction())
             {
-                _unitOfWork.EventRepository.UpdateEvent(eventEntity);
-                _emailNotificationService.EventEditedAuthorNotification(eventEntity, oldEvent);
-                _emailNotificationService.EventEditedNotification(eventEntity, oldEvent);
+                try
+                {
+                    var oldEvent = _unitOfWork.EventRepository.GetEventById(eventEntity.Id);
+                    if (CanEdit(editor, oldEvent))
+                    {
+                        if (!_audienceService.IsFree(eventEntity.AudienceId, eventEntity.StartTime, eventEntity.EndTime, eventEntity.Id))
+                        {
+                            throw new InvalidOperationException("Sorry, but someone already booked this audience for the specified period.");
+                        }
 
-                _unitOfWork.Save();
-            }
-            else
-            {
-                throw new UnauthorizedAccessException(Resources.Resources.YouHaveNotRightsToEditEvent);
+                        _unitOfWork.EventRepository.UpdateEvent(eventEntity);
+                        _emailNotificationService.EventEditedAuthorNotification(eventEntity, oldEvent);
+                        _emailNotificationService.EventEditedNotification(eventEntity, oldEvent);
+
+                        _unitOfWork.Save();
+                    }
+                    else
+                    {
+                        throw new UnauthorizedAccessException(Resources.Resources.YouHaveNotRightsToEditEvent);
+                    }
+
+                    transaction.Commit();
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
             }
         }
 

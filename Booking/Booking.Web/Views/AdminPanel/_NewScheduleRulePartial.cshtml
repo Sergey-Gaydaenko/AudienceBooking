@@ -1,4 +1,5 @@
-﻿@model Booking.Web.ViewModels.AdminPanel.CreateScheduleRuleViewModel
+﻿@using Booking.Web.Localization
+@model Booking.Web.ViewModels.AdminPanel.CreateScheduleRuleViewModel
 
 <h2>New schedule rule</h2>
 
@@ -8,42 +9,62 @@
 
     <p>
         Applied date:
-        @Html.EditorFor(m => m.AppliedDate, new {htmlAttributes = new {id = "datepicker" } })
+        @Html.EditorFor(m => m.AppliedDate, new {htmlAttributes = new {id = "datepicker"}})
     </p>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.ForSunday)
-        @Html.EditorFor(m => m.ForSunday)
+        <input type="checkbox" id="checkbox-sunday" name="ForSunday" value=true @(Model.ForSunday ? "checked" : "")/>
+        <label for="checkbox-sunday">
+            <span></span>Apply rule for sunday
+        </label>
+        <input name="ForSunday" type="hidden" value="false"/>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.ForMonday)
-        @Html.EditorFor(m => m.ForMonday)
+        <input type="checkbox" id="checkbox-monday" name="ForMonday" value=true @(Model.ForMonday ? "checked" : "")/>
+        <label for="checkbox-monday">
+            <span></span>Apply rule for monday
+        </label>
+        <input name="ForMonday" type="hidden" value="false"/>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.ForTuesday)
-        @Html.EditorFor(m => m.ForTuesday)
+        <input type="checkbox" id="checkbox-tuesday" name="ForTuesday" value=true @(Model.ForTuesday ? "checked" : "")/>
+        <label for="checkbox-tuesday">
+            <span></span>Apply rule for tuesday
+        </label>
+        <input name="ForTuesday" type="hidden" value="false"/>
+    </div>
+    <div class="form-group">
+        <input type="checkbox" id="checkbox-wednesday" name="ForWednesday" value=true @(Model.ForWednesday ? "checked" : "")/>
+        <label for="checkbox-wednesday">
+            <span></span>Apply rule for wednesday
+        </label>
+        <input name="ForWednesday" type="hidden" value="false"/>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.ForWednesday)
-        @Html.EditorFor(m => m.ForWednesday)
+        <input type="checkbox" id="checkbox-thursday" name="ForThursday" value=true @(Model.ForThursday ? "checked" : "")/>
+        <label for="checkbox-thursday">
+            <span></span>Apply rule for thursday
+        </label>
+        <input name="ForThursday" type="hidden" value="false"/>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.ForThursday)
-        @Html.EditorFor(m => m.ForThursday)
+        <input type="checkbox" id="checkbox-friday" name="ForFriday" value=true @(Model.ForFriday ? "checked" : "")/>
+        <label for="checkbox-friday">
+            <span></span>Apply rule for friday
+        </label>
+        <input name="ForFriday" type="hidden" value="false"/>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.ForFriday)
-        @Html.EditorFor(m => m.ForFriday)
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.ForSaturday)
-        @Html.EditorFor(m => m.ForSaturday)
+        <input type="checkbox" id="checkbox-saturday" name="ForSaturday" value=true @(Model.ForSaturday ? "checked" : "") />
+        <label for="checkbox-saturday">
+            <span></span>Apply rule for saturday
+        </label>
+        <input name="ForSaturday" type="hidden" value="false" />
     </div>
 
     <div class="form-group">

@@ -270,7 +270,6 @@
     <Compile Include="ViewModels\Profile\EditProfileViewModel.cs" />
     <Compile Include="ViewModels\Profile\ProfileViewModel.cs" />
     <Compile Include="ViewModels\Profile\UserInfoViewModel.cs" />
-    <Compile Include="ViewModels\ScheduleTableViewModel.cs" />
     <Compile Include="ViewModels\Schedule\ScheduleRuleVm.cs" />
     <Compile Include="ViewModels\Users\UsersListItemViewModel.cs" />
     <Compile Include="ViewModels\Users\UsersViewModel.cs" />

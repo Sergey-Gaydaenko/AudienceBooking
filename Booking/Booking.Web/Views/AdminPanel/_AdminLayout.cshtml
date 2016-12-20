@@ -6,9 +6,32 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/admin_panel/layout.css")
     @Styles.Render("~/Content/bootstrap.min.css")
+    @Styles.Render("~/Content/Site.css")
+    @Styles.Render("~/Content/checkbox-styles.css")
     @RenderSection("styles", required: false)
 </head>
 <body>
+
+<header>
+    <div class="page-container">
+        <div class="navb">
+            <ul id="navb" class="navb">
+                <li>
+                    <div class="logo-nav-container">
+                        <a href="@Url.Action("Index", "Home")">
+                            <img src="@Url.Content("~/Content/Images/logo.png")"/>
+                        </a>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="@Url.Action("Index", "AdminPanel")">Admin panel</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
 <div class="page-container">
     @RenderBody()
     @RenderSection("scripts", required: false)

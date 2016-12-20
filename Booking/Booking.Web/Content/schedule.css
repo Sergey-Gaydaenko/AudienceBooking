@@ -1,4 +1,25 @@
-﻿#schedule-table {
+﻿.schedule-plus-btn {
+    display: inline-block;
+    position: absolute;
+    background: #f95752;
+    opacity: 0;
+}
+
+.schedule-plus-btn:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.schedule-plus-btn .fa {
+    font-size: 30px;
+    display: block;
+    text-align: center;
+    height: 30px;
+    margin: 10px 0;
+    color: white;
+}
+
+#schedule-table {
     display: table;
     padding: 10px 0 0 0;
 }
@@ -236,3 +257,7 @@
 
 .schedule-event-item-private .event-item-time,
 .schedule-event-item-private .event-item-title { color: grey; }
+
+#increment-date-button, #decrement-date-button { cursor: pointer }
+
+.datepicker-switch { pointer-events: none; }

@@ -75,18 +75,24 @@
     </div>
 
     <footer>
+        <ul class="nav navbar-nav" style="font-size: 8px">
+            <li>
+                <a href="@Url.Action("SelectMap", "Home")">Map selection</a>
+            </li>
+            <li>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a href="@Url.Action("Index", "AdminPanel")">Admin panel</a>
+                }
+            </li>
+        </ul>
+
         <div style="text-align: center;">
             <div class="logo-container">
                 <img src="@Url.Content("~/Content/Images/logo.png")"/>
             </div>
             <p> @Localization.All_rights_reserved &copy; @DateTime.Now.Year </p>
         </div>
-
-        <ul class="nav navbar-nav" style="font-size: 8px">
-            <li class="active">
-                <a href="@Url.Action("SelectMap", "Home")">Map selection</a>
-            </li>
-        </ul>
     </footer>
 </div>
 
@@ -106,6 +112,12 @@
 <input type="hidden" id="get-previous-available-date-url" value="@Url.Action("GetPreviousAvailableDate", "Schedule")"/>
 <input type="hidden" id="get-disabled-days-month-url" value="@Url.Action("GetDisabledDaysForMonth", "Schedule")"/>
 <input type="hidden" id="audience-page-url" value="@Url.Action("Index", "Audience")"/>
+
+<input type="hidden" id="get-audience-info-url" value="@Url.Action("GetAudienceInfo", "Audience")"/>
+<input type="hidden" id="redirect-to-event-url" value="@Url.Action("Index", "Event")"/>
+<input type="hidden" id="redirect-to-edit-event-url" value="@Url.Action("Edit", "Event")" />
+<input type="hidden" id="display-event-popup-url" value="@Url.Action("DisplayEventPopup", "Event")"/>
+<input type="hidden" id="user-id" value="@User.Identity.GetUserId()"/>
 
 <div class="modal fade bd-example-modal-sm" id="CreateEventModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-sm">
