@@ -22,6 +22,11 @@
 
             });
     </script>
+    <style>
+        .list-group-item.active a {
+            color: white;
+        }
+    </style>
 }
 @section styles {
     @Styles.Render("~/Content/bootstrap-datepicker.css")
@@ -29,10 +34,10 @@
 
 <h2>Audience maps</h2>
 
-<ul>
+<ul class="list-group">
     @foreach (var pair in Model.AudienceMaps)
     {
-        <li>
+        <li class="list-group-item @(Model.ActiveMapId == pair.Key ? "active" : "")">
             <a href="@Url.Action("AudienceMap", "AdminPanel", new {id = pair.Key})">@pair.Value</a>
 
             @if (Model.ActiveMapId != pair.Key)
@@ -43,15 +48,10 @@
                     <button type="submit" class="btn btn-primary">Set active</button>
                 }
             }
-            else
-            {
-                <label class="label label-success">active</label>
-            }
-
             @using (Html.BeginForm("DeleteAudienceMap", "AdminPanel", new {id = pair.Key}, FormMethod.Post, new {@class = "inline-form"}))
             {
                 @Html.AntiForgeryToken()
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="submit" class="btn btn-danger" style="margin-left:40px">Delete</button>
             }
         </li>
     }
@@ -64,10 +64,10 @@
 
 <h2>Schedule rules</h2>
 
-<ul>
+<ul class="list-group">
     @foreach (var rule in Model.ScheduleRules)
     {
-        <li>
+        <li class="list-group-item">
             @rule.DayOfWeek (@rule.StartHour:00 - @rule.EndHour:00) - Applied on @rule.AppliedDate
         </li>
     }

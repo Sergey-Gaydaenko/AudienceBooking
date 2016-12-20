@@ -10,9 +10,13 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(m => m.IsBookingAvailable)
-            @Html.CheckBoxFor(m => m.IsBookingAvailable)
+            <input type="checkbox" id="checkbox-booking" name="IsBookingAvailable" value=true @(Model.IsBookingAvailable ? "checked" : "")/>
+            <label for="checkbox-booking">
+                <span></span>Allow booking
+            </label>
+            <input name="IsBookingAvailable" type="hidden" value="false"/>
         </div>
+
 
         @Html.HiddenFor(m => m.AudienceMapId)
 

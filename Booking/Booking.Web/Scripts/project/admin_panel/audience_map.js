@@ -5,7 +5,7 @@
                 var $mapContainer = $("#map-container");
                 var children = $("#map-container").children("#new-audience-div");
                 if (children.length === 0) {
-                    var $modeBtn = $("<button id='mode-btn'>m</button>");
+                    var $modeBtn = $("<button id='mode-btn' class='btn-primary'>m</button>");
                     var $audience = $("<div id='new-audience-div'></div>");
                     $audience.append($modeBtn);
                     $audience.draggable();
