@@ -1,10 +1,11 @@
-﻿@model Booking.Web.ViewModels.Audience.AudienceInfoViewModel
+﻿@using Booking.Web.Localization
+@model Booking.Web.ViewModels.Audience.AudienceInfoViewModel
 
 @if (Model.LineDetailsImageUrl != null)
 {
     <img class="line-details" src="@Model.LineDetailsImageUrl"/>
 }
-
+@Styles.Render("~/Content/audience-page.css")
 <div class="audience-info-container">
     <img src="@Url.Content("~/Content/Images/audience-info-icons/icon-table.png")"/>
     <span>@Model.SeatsCount</span>
@@ -56,4 +57,25 @@
             <span>@Model.ProjectorsCount</span>
         }
     }
+    <input type="hidden" id="audience-cancel-page-url" value="@Url.Action("GetClosePopup", "Audience")"/>
+    <input type="hidden" id="audience-open-url" value="@Url.Action("Open", "Audience")"/>
+    <input type="hidden" id="audience-edit-url" value="@Url.Action("Edit", "Audience")" />
+    @Html.HiddenFor(m=>m.Id, new {@id="Id"})
 </div>
+@if (User.IsInRole("Admin"))
+{
+    if (@Model.IsBookingAvailable)
+    {
+        <button class="btn-open-close-audience" id="close-audience-@Model.Id" data-audienceId="@Model.Id" aria-hidden="false" data-toggle="modal" data-target="#CloseAudience">@Localization.Сlose</button>
+    }
+    else
+    {
+        <button class="btn-open-close-audience" id="open-audience-@Model.Id" data-audienceId="@Model.Id">@Localization.Open</button>
+    }
+    <button class="btn-edit-audience" id="edit-audience-@Model.Id" data-audienceId="@Model.Id">@Localization.Edit</button>
+    <div class="modal fade close-audience-modal-sm" id="CloseAudience" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div id="close-audience-popup"></div>
+        </div>
+    </div>
+}

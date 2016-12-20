@@ -354,4 +354,16 @@
   <data name="Admin" xml:space="preserve">
     <value>Администратор</value>
   </data>
+  <data name="AllEventsWillBeDelete" xml:space="preserve">
+    <value>Все события, запланированные в этой аудитории, будут отменены.</value>
+  </data>
+  <data name="AreYouSereToCloseAudience" xml:space="preserve">
+    <value>Вы уверены, что хотите закрыть эту аудиторию?</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Открыть</value>
+  </data>
+  <data name="Сlose" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
 </root>

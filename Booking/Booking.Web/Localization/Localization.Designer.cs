@@ -106,6 +106,24 @@ namespace Booking.Web.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Все события, запланированные в этой аудитории, будут отменены..
+        /// </summary>
+        public static string AllEventsWillBeDelete {
+            get {
+                return ResourceManager.GetString("AllEventsWillBeDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вы уверены, что хотите закрыть эту аудиторию?.
+        /// </summary>
+        public static string AreYouSereToCloseAudience {
+            get {
+                return ResourceManager.GetString("AreYouSereToCloseAudience", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Эта аудитория занята на выбранное время. Выберите, пожалуйста другое..
         /// </summary>
         public static string AudienceIsAlreadyBooked {
@@ -151,7 +169,7 @@ namespace Booking.Web.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Выберите аудиторию.
+        ///   Looks up a localized string similar to Изменить.
         /// </summary>
         public static string Change {
             get {
@@ -160,7 +178,7 @@ namespace Booking.Web.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Выберите аудиторию на 10 этаже.
+        ///   Looks up a localized string similar to Выберите аудиторию.
         /// </summary>
         public static string ChooseAudience {
             get {
@@ -417,6 +435,15 @@ namespace Booking.Web.Localization {
         public static string NumberOfActiveEvent {
             get {
                 return ResourceManager.GetString("NumberOfActiveEvent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Открыть.
+        /// </summary>
+        public static string Open {
+            get {
+                return ResourceManager.GetString("Open", resourceCulture);
             }
         }
         
@@ -768,6 +795,15 @@ namespace Booking.Web.Localization {
         public static string Yes {
             get {
                 return ResourceManager.GetString("Yes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Закрыть.
+        /// </summary>
+        public static string Сlose {
+            get {
+                return ResourceManager.GetString("Сlose", resourceCulture);
             }
         }
     }

@@ -1,2 +1,54 @@
 ﻿body {
 }
+.btn-open-close-audience {
+       visibility: visible;
+    background: #747b87;
+    color: #FFF;
+    position: absolute;
+    right: 0%;
+    top: 1%;
+    border: 1px solid #747b87;
+    border-radius: 20px;
+    height: 35px;
+    width: 146px;
+    z-index: 120;
+}
+
+.btn-edit-audience {
+       visibility: visible;
+    background: #c8ceda;
+    position: absolute;
+    right: 0%;
+    top: 10%;
+    border: 1px solid #c8ceda;
+    border-radius: 20px;
+    height: 35px;
+    width: 146px;
+    z-index: 120;
+}
+#close-audience-popup {
+        width: 427px;
+    border: 1px solid #9fa6b6;
+    background: #FFF;
+}
+.close-audience-message {
+    font-size: 15px;
+    color: #FFF;
+    position: relative;
+    top: -5px;
+}
+.all-events-will-delete-message {
+       font-size: 15px;
+    position: relative;
+    top: -17px;
+    left: 22px;
+}
+.close-audience-container {
+        height: 160px;
+    width: 425px;
+    background: #FFF;
+}
+
+.btns-close-audience-popup {
+        padding: 27px 40px 40px 59px;
+}

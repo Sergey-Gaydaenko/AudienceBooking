@@ -51,7 +51,8 @@ namespace Booking.Repositories.Repositories
 
         private CloudBlobContainer GetContainer()
         {
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(_storageConnectionString);
+            //change before commit
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=gaydaenko;AccountKey=oMmZQ1K3ypnpn9Aih2sd1zdsLrwKMCv66fy8+Dk+7pSHMeQIruLS+5HjxRTt0XbHXyer7cmX9U+480qm4liDgQ==");
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
             var container = blobClient.GetContainerReference(_storageContainerName);
             container.CreateIfNotExists();

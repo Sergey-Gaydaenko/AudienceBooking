@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 using AutoMapper;
+using Booking.Models.EfModels;
 using Booking.Repositories;
 using Booking.Services.Interfaces;
 using Booking.Services.Services;
@@ -51,11 +52,18 @@ namespace Booking.Web.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
         public ActionResult Open(Guid audienceId)
         {
-            throw new NotImplementedException();
+            _audienceService.OpenAudience(audienceId);
+            return RedirectToAction("Index", new {audienceId = audienceId});
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public ActionResult GetClosePopup(Guid audienceId)
+        {
+            return PartialView("_AudienceCancelPopup", audienceId);
         }
 
         [HttpPost]
@@ -63,7 +71,8 @@ namespace Booking.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Close(Guid audienceId)
         {
-            throw new NotImplementedException();
+            _audienceService.CloseAudience(audienceId);
+            return RedirectToAction("Index", new {audienceId= audienceId});
         }
 
         [HttpGet]
@@ -80,7 +89,18 @@ namespace Booking.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Save(AudienceInfoViewModel audienceInfoViewModel)
         {
-            throw new NotImplementedException();
+            var audience = _audienceService.GetAudience(audienceInfoViewModel.Id);
+            audience.IsBookingAvailable = audienceInfoViewModel.IsBookingAvailable;
+            audience.BoardsCount = audienceInfoViewModel.BoardsCount;
+            audience.LaptopsCount = audienceInfoViewModel.LaptopsCount;
+            audience.PrintersCount = audienceInfoViewModel.PrintersCount;
+            audience.ProjectorsCount = audienceInfoViewModel.ProjectorsCount;
+            audience.SeatsCount = audienceInfoViewModel.SeatsCount;
+            audience.Name = audienceInfoViewModel.Name;
+            
+            _audienceService.UpdateAudience(audience);
+
+            return View("Index");
         }
     }
 }

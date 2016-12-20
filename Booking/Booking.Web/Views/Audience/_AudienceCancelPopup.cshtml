@@ -1,0 +1,18 @@
+﻿@using Booking.Web.Localization
+@model Guid
+
+@using (Html.BeginForm("Close", "Audience", new { audienceId = Model }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="close-audience-container">
+        <div class="cancel-event-header">
+            <i class="fa fa-ban icon-ban" aria-hidden="true"></i>
+            <span class="close-audience-message">@Localization.AreYouSereToCloseAudience</span>
+        </div>
+        <div class="btns-close-audience-popup">
+            <span class="all-events-will-delete-message">@Localization.AllEventsWillBeDelete</span>
+            <button type="button" class="close-this-popup" data-dismiss="modal">@Localization.No</button>
+            <input type="submit" id="close-audience" class="cancel-event-submit" data-id="@Model" value="@Localization.Yes"/>
+        </div>
+    </div>
+}
