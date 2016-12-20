@@ -72,6 +72,19 @@ namespace Booking.Services.Services
             }
         }
 
+        public void CancelEventsByAudience(Guid audienceId)
+        {
+            var eventsQuery = _unitOfWork.EventRepository.GetAllEvents()
+                .Where(e => e.AudienceId == audienceId);
+
+            foreach (var eventEntity in eventsQuery)
+            {
+                _unitOfWork.EventRepository.DeleteEvent(eventEntity);
+                _emailNotificationService.EventCancelledAuthorNotification(eventEntity);
+                _emailNotificationService.EventCancelledNotification(eventEntity);
+            }
+            _unitOfWork.Save();
+        }
         public void CancelEventsByAuthor(string userId)
         {
             var eventsQuery = _unitOfWork.EventRepository.GetAllEvents().

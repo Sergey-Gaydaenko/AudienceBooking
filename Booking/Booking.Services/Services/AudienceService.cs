@@ -11,11 +11,13 @@ namespace Booking.Services.Services
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IBookingScheduleRuleService _bookingScheduleRuleService;
+        private readonly IEventService _eventService;
 
         public AudienceService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
             _bookingScheduleRuleService = new BookingScheduleRuleService(_unitOfWork);
+            _eventService = new EventService(unitOfWork, new UsersService(), new EmailNotificationService(), this);
         }
 
         public Audience GetAudience(Guid audienceId)
@@ -46,6 +48,7 @@ namespace Booking.Services.Services
             var currentAudience = _unitOfWork.AudienceRepository.GetAudienceById(audienceId);
             if (currentAudience != null)
             {
+                _eventService.CancelEventsByAudience(audienceId);
                 currentAudience.IsBookingAvailable = false;
                 _unitOfWork.AudienceRepository.UpdateAudience(currentAudience);
                 _unitOfWork.Save();

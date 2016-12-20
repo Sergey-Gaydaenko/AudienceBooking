@@ -100,7 +100,7 @@ namespace Booking.Web.Controllers
             
             _audienceService.UpdateAudience(audience);
 
-            return View("Index");
+            return RedirectToAction("Index", new {audienceId = audienceInfoViewModel.Id});
         }
     }
 }

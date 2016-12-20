@@ -52,3 +52,51 @@
 .btns-close-audience-popup {
         padding: 27px 40px 40px 59px;
 }
+
+.audience-edit-container {
+    top: 390px;
+    position: absolute;
+    height: 83px;
+    width: auto;
+    margin: 5px 0;
+    border-color: rgba(0,0,0,0.2);
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 24px;
+    display: inline-block;
+    left: 33%;
+    background-color: rgba(255,255,255,0.4);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 0 10px;
+    z-index: 120;
+}
+
+.textboxforitem {
+        border: 0;
+    width: 30px;
+    text-decoration: underline;
+}
+.audience-edit-container img {
+    margin: 8px 2px 8px 10px;
+}
+
+.audience-edit-container span {
+    margin-right: 5px;
+}
+
+.space-filler {
+    width: 10px;
+    display: inline-block;
+}
+
+.line-details {
+    top: 0;
+    left: 0;
+    z-index: 80;
+    position: absolute;
+}
+.tbforName {
+    border: 0;
+    text-decoration: underline;
+    width: 130px;
+}

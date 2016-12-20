@@ -403,6 +403,15 @@ namespace Booking.Web.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Название:.
+        /// </summary>
+        public static string NameForAudience {
+            get {
+                return ResourceManager.GetString("NameForAudience", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Нет.
         /// </summary>
         public static string No {

@@ -366,4 +366,7 @@
   <data name="Сlose" xml:space="preserve">
     <value>Закрыть</value>
   </data>
+  <data name="NameForAudience" xml:space="preserve">
+    <value>Название:</value>
+  </data>
 </root>

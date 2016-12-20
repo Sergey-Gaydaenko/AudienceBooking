@@ -23,5 +23,7 @@ namespace Booking.Services.Interfaces
         bool CanEdit(IPrincipal user, Event eventEntity);
 
         bool CanEdit(IPrincipal user, Guid eventId);
+
+        void CancelEventsByAudience(Guid audienceId);
     }
 }

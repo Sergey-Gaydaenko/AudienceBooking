@@ -1,0 +1,34 @@
+﻿@using Booking.Web.Localization
+@model Booking.Web.ViewModels.Audience.AudienceInfoViewModel
+    @Styles.Render("~/Content/audience-page.css")
+@*@Scripts.Render("~/Scripts/project/audience-page.js")*@
+@using (Html.BeginForm("Save", "Audience", Model, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="audience-edit-container">
+        <div class="form-group">
+            <span>@Localization.NameForAudience</span>
+            @Html.TextBoxFor(m => m.Name, new {@class = "tbforName", value = Model.Name, autocomplete = "off"})
+            <button type="button" id="cancel-event-edit-changes-@Model.Id" class="btn-cancel-audience-edit">@Localization.Cancel</button>
+            <input class="btn-submit-audience-edit" type="submit" value="@Localization.Save"/>
+        </div>
+        <div class="form-group">
+            <img src="@Url.Content("~/Content/Images/audience-info-icons/icon-table.png")"/>
+            @Html.TextBoxFor(m => m.SeatsCount, new {@class = "textboxforitem", onkeypress = "return isNumberKey(event)", value = @Model.SeatsCount})
+
+            <img src="@Url.Content("~/Content/Images/audience-info-icons/icon-board.png")"/>
+            @Html.TextBoxFor(m => m.BoardsCount, new {@class = "textboxforitem", onkeypress = "return isNumberKey(event)", value = @Model.BoardsCount})
+
+            <img src="@Url.Content("~/Content/Images/audience-info-icons/icon-laptop.png")"/>
+            @Html.TextBoxFor(m => m.LaptopsCount, new {@class = "textboxforitem", onkeypress = "return isNumberKey(event)" ,value = @Model.LaptopsCount})
+
+            <img src="@Url.Content("~/Content/Images/audience-info-icons/icon-print.png")"/>
+            @Html.TextBoxFor(m => m.PrintersCount, new {@class = "textboxforitem", onkeypress = "return isNumberKey(event)", value = @Model.PrintersCount})
+
+            <img src="@Url.Content("~/Content/Images/audience-info-icons/icon-proect.png")"/>
+            @Html.TextBoxFor(m => m.ProjectorsCount, new {@class = "textboxforitem", onkeypress = "return isNumberKey(event)", value = @Model.ProjectorsCount})
+        </div>
+        <input type="hidden" id="audience-go-to-index-url" value="@Url.Action("Index", "Audience")"/>
+        @Html.HiddenFor(m => m.Id, new {@id = "Id"})
+    </div>
+}

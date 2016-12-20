@@ -462,6 +462,7 @@
     <Content Include="Views\Audience\Edit.cshtml" />
     <Content Include="Views\Audience\_AudienceMapEditPartial.cshtml" />
     <Content Include="Views\Audience\_AudienceCancelPopup.cshtml" />
+    <Content Include="Views\Audience\_AudienceInfoEditPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
